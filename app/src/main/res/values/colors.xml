@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="bottem">#008080</color>
+
+
+    <color name="error_color">#B00020</color> <!-- Red for error messages -->
+    <color name="success_color">#4CAF50</color> <!-- Green for success notifications -->
+    <color name="selectedColor">#FF0000</color> <!-- Red color when selected -->
+    <color name="unselectedColor">#FFFFFF</color>
+
+
 </resources>
