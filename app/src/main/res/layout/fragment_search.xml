@@ -1,14 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Search">
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context="com.infowave.trueheal.fragment.Search">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Upper Section with Greetings -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_curve"
+        android:padding="8dp">
 
-</FrameLayout>
+        <!-- Greeting Message -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi User!"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="5dp"
+            android:paddingHorizontal="15dp" />
+
+        <!-- Find Your Doctor Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find Your Doctor"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="15dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Main Content Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Search Bar -->
+            <EditText
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search..."
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:drawableLeft="@drawable/search_icon"
+                android:background="@drawable/search_background"
+                android:padding="10dp"
+                android:drawablePadding="8dp" />
+
+            <!-- Nearest Specialist Heading -->
+            <TextView
+                android:id="@+id/nearestSpecialistLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nearest Specialist"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"/>
+
+            <!-- Specialist RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/doctor_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"/> <!-- Disable nested scrolling for proper scrolling behavior -->
+
+            <!-- Nearest Hospital Heading -->
+            <TextView
+                android:id="@+id/nearestHospitalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nearest Hospital"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"/>
+
+            <!-- Hospital RecyclerView (for Grid) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hospital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"/> <!-- Disable nested scrolling for proper scrolling behavior -->
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
