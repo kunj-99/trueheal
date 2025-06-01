@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 // Import your fragments here:
-import com.infowave.trueheal.fragement.Home;
+import com.infowave.trueheal.fragment.Home;
 import com.infowave.trueheal.fragment.Appointment;
 import com.infowave.trueheal.fragment.Profile;
 import com.infowave.trueheal.fragment.Search;;
