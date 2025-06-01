@@ -12,12 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.infowave.trueheal.R;
+import com.infowave.trueheal.adapter.DoctorSearchAdapter;
+import com.infowave.trueheal.adapter.HospitalSearchAdapter;
 
 public class Search extends Fragment {
 
     private RecyclerView recyclerView, hospitalRecyclerView;
-    private doctorsearchaddpter doctorAdapter;
-    private searchhospitaladdpter hospitalAdapter;
+    private DoctorSearchAdapter doctorAdapter;
+    private HospitalSearchAdapter hospitalAdapter;
 
     // Sample data for doctors
     private int[] doctorImages = {R.drawable.main1, R.drawable.main2, R.drawable.main3};

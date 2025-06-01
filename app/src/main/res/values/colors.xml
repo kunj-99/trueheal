@@ -12,5 +12,11 @@
     <color name="selectedColor">#FF0000</color> <!-- Red color when selected -->
     <color name="unselectedColor">#FFFFFF</color>
 
-
+    <color name="red">#FFE91E63</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="my_light_primary">#6200EE</color> <!-- Purple -->
+    <color name="my_light_primary_dark">#3700B3</color> <!-- Darker purple -->
+    <color name="my_light_accent">#03DAC5</color> <!-- Teal -->
+    <color name="doctortexcolor">#0EBE7F</color> <!-- Teal -->
+    <!-- Background and surface colors -->
 </resources>

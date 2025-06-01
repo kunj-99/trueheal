@@ -1,0 +1,9 @@
+<!-- res/drawable/button_rounded_instant.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/instent"/> <!-- Button color for "Instant" -->
+    <corners android:radius="16dp"/> <!-- Adjust the radius to your preference -->
+    <padding android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp" />
+</shape>
