@@ -14,10 +14,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.infowave.trueheal.BookAppointmen;
+import com.infowave.trueheal.Details;
+import com.infowave.trueheal.InstantAppointment;
 import com.infowave.trueheal.R;
-import com.infowave.trueheal.details;
-import com.infowave.trueheal.bookappointment;
-import com.infowave.trueheal.bookinstantappointment;
+
 
 public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapter.DoctorViewHolder> {
 
@@ -66,7 +67,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
 
         // Open details page on item click
         holder.itemView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, details.class);
+            Intent intent = new Intent(context, Details.class);
             intent.putExtra("doctorName", doctorNames[position]);
             intent.putExtra("doctorSpecialty", doctorSpecialties[position]);
             intent.putExtra("doctorImage", doctorImages[position]);
@@ -77,7 +78,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
 
         // Book button
         holder.scheduleButton.setOnClickListener(view -> {
-            Intent intent = new Intent(context, bookappointment.class);
+            Intent intent = new Intent(context, BookAppointmen.class);
             intent.putExtra("doctorName", doctorNames[position]);
             intent.putExtra("doctorSpecialty", doctorSpecialties[position]);
             intent.putExtra("doctorImage", doctorImages[position]);
@@ -88,7 +89,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
 
         // Instant button
         holder.instantButton.setOnClickListener(view -> {
-            Intent intent = new Intent(context, bookinstantappointment.class);
+            Intent intent = new Intent(context, InstantAppointment.class);
             intent.putExtra("doctorName", doctorNames[position]);
             intent.putExtra("doctorSpecialty", doctorSpecialties[position]);
             intent.putExtra("doctorImage", doctorImages[position]);

@@ -51,14 +51,14 @@ public class Search extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Set up doctor adapter, passing doctor locations
-        doctorAdapter = new doctorsearchaddpter(getContext(), doctorImages, doctorNames, doctorSpecialties, doctorAvailabilities, pendingPatients, doctorRatings, doctorLocations);
+        doctorAdapter = new DoctorSearchAdapter(getContext(), doctorImages, doctorNames, doctorSpecialties, doctorAvailabilities, pendingPatients, doctorRatings, doctorLocations);
         recyclerView.setAdapter(doctorAdapter);
 
         // Initialize RecyclerView for hospitals
         hospitalRecyclerView = view.findViewById(R.id.hospital);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
         hospitalRecyclerView.setLayoutManager(gridLayoutManager);
-        hospitalAdapter = new searchhospitaladdpter(hospitalImages, hospitalNames);
+        hospitalAdapter = new HospitalSearchAdapter(hospitalImages, hospitalNames);
         hospitalRecyclerView.setAdapter(hospitalAdapter);
 
         return view;
