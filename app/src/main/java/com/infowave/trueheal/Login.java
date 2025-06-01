@@ -89,7 +89,6 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    // Inner class to handle moving focus to the next input field
     private static class OTPTextWatcher implements TextWatcher {
 
         private View currentView;
@@ -116,7 +115,6 @@ public class Login extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
             // No action needed here
         }
-
 
     }
 
