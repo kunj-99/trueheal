@@ -27,9 +27,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.infowave.trueheal.DoctorSpecialist;
 import com.infowave.trueheal.R;
 import com.infowave.trueheal.WishList;
 import com.infowave.trueheal.adapter.SliderAdapter;
+import com.infowave.trueheal.adapter.SpecialistAdapter;
 
 public class Home extends Fragment {
 
@@ -180,20 +182,20 @@ public class Home extends Fragment {
         handler.postDelayed(runnable, 5000); // Start auto-scrolling
 
         // Set a GridLayoutManager with 3 columns for specialists
-//        specialist = rootView.findViewById(R.id.specialist);
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
-//        specialist.setLayoutManager(gridLayoutManager);
-//        homespecialist specialistAdapter = new homespecialist(specialistImages, specialistNames);
-//        specialist.setAdapter(specialistAdapter);
+        specialist = rootView.findViewById(R.id.specialist);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+        specialist.setLayoutManager(gridLayoutManager);
+        SpecialistAdapter specialistAdapter = new SpecialistAdapter(specialistImages, specialistNames);
+        specialist.setAdapter(specialistAdapter);
 
-        // Handle the show more button click event
-//        showmor.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Replace `YourTargetActivity.class` with the actual target activity
-//                startActivity(new Intent(getActivity(), specialist.class));
-//            }
-//        });
+       //  Handle the show more button click event
+        showmor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Replace `YourTargetActivity.class` with the actual target activity
+                startActivity(new Intent(getActivity(), DoctorSpecialist.class));
+            }
+        });
 
         return rootView;  // Return the root view
     }
