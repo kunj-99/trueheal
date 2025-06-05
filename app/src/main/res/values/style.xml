@@ -1,9 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <style name="CustomNavigationDrawerItemText" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">16sp</item> <!-- Use 'sp' for text size -->
     </style>
+
+    <!-- CalendarView Theme (Default Widget Style) -->
+    <style name="CustomCalendarViewStyle" parent="android:Widget.CalendarView">
+        <item name="android:dateTextAppearance">@style/CalendarDateTextAppearance</item>
+        <item name="android:weekDayTextAppearance">@style/CalendarWeekDayTextAppearance</item>
+        <item name="android:focusedMonthDateColor">#000000</item> <!-- Black text for focused dates -->
+       <!-- <item name="android:selectedDateVerticalBar">@drawable/calendar_selected_date</item> -->
+        <item name="android:weekNumberColor">#FF6600</item> <!-- Orange color for week numbers -->
+        <item name="android:calendarTextColor">#000000</item> <!-- Default text color -->
+    </style>
+
+    <!-- Date text appearance -->
+    <style name="CalendarDateTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">#000000</item> <!-- Black for unselected dates -->
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Weekday text appearance -->
+    <style name="CalendarWeekDayTextAppearance" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">#FF6600</item> <!-- Orange for weekdays (Mo, Tu, etc.) -->
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <!-- Custom style for DatePickerDialog with spinner mode, curved corners, and bold buttons -->
+    <style name="SpinnerDatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:buttonStyle">@style/BoldButtonStyle</item>
+    </style>
+
+
+
+    <!-- Bold style for the dialog buttons (Cancel/OK) -->
+    <style name="BoldButtonStyle" parent="android:Widget.Button">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
 
 
 </resources>
