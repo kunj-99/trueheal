@@ -7,10 +7,6 @@
     android:padding="16dp"
     android:background="@drawable/top_rounded_background">
 
-    <!-- Your content here -->
-
-
-
 
     <!-- Enter 4 Digits Code Title -->
     <TextView
@@ -29,7 +25,7 @@
         android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter the 4 digits code that you received on your email."
+        android:text="Enter the 4 digits code that you received on your SMS."
         android:textSize="14sp"
         android:textColor="@android:color/darker_gray"
         android:layout_marginTop="8dp"
