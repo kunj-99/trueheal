@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 // Import your fragments here:
 import com.infowave.trueheal.fragment.Home;
 import com.infowave.trueheal.fragment.Appointment;
-import com.infowave.trueheal.fragment.Profile;
+import com.infowave.trueheal.fragment.history;
 import com.infowave.trueheal.fragment.Search;;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -29,7 +29,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return new Appointment();
             default:
-                return new Profile();
+                return new history();
         }
     }
 

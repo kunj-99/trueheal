@@ -46,6 +46,12 @@
     </style>
 
 
+    <!-- res/values/themes.xml -->
+    <style name="Theme.YourApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Prevent layout from drawing under system bars -->
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:statusBarColor">@color/dark_cyan</item> <!-- or your app bar color -->
+    </style>
 
 
 </resources>

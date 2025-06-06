@@ -43,6 +43,6 @@
     <color name="selectedColor">#FF0000</color> <!-- Red color when selected -->
     <color name="unselectedColor">#FFFFFF</color>
 
-
+    <color name="dark_cyan">#00a896</color>
 </resources>
 

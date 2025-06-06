@@ -1,12 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:paddingTop="48dp"
     android:background="@color/bottem"
-    android:padding="30dp">
+    android:gravity="center_vertical"
+    android:fitsSystemWindows="true"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
-    <!-- Add header content here -->
+    <!-- Your Image and TextViews -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/pr_ic_profile_placeholder"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"/>
 
-</LinearLayout>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="John Doe"
+android:textColor="@android:color/white"
+android:textSize="18sp"
+android:textStyle="bold"
+android:layout_marginTop="8dp"
+android:layout_gravity="center_horizontal"/>
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="6354355617"
+android:textColor="@android:color/white"
+android:textSize="14sp"
+android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
