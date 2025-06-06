@@ -61,7 +61,6 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.Inner>
         TextView doctorExperience;
         TextView doctorAvailability;
         TextView pendingPatients;
-
         public Inner(@NonNull View itemView) {
             super(itemView);
 
