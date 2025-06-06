@@ -112,6 +112,22 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+                // Change the toolbar title as you swipe pages
+                switch (position) {
+                    case 0:
+                        toolbarTitle.setText("Home");
+                        break;
+                    case 1:
+                        toolbarTitle.setText("Search");
+                        break;
+                    case 2:
+                        toolbarTitle.setText("Appointments");
+                        break;
+                    case 3:
+                        toolbarTitle.setText("Profile");
+                        break;
+                }
+                // Update BottomNavigationView as before
                 switch (position) {
                     case 0:
                         btn.setSelectedItemId(R.id.page_1);
@@ -130,5 +146,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageScrollStateChanged(int state) {}
         });
+
     }
 }

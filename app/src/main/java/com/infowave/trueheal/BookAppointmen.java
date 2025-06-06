@@ -3,9 +3,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
-
-
 public class BookAppointmen extends AppCompatActivity {
 
     @Override
