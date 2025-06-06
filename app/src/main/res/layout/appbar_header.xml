@@ -1,41 +1,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="180dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
     android:orientation="vertical"
-    android:paddingTop="48dp"
-    android:background="@color/bottem"
-    android:gravity="center_vertical"
-    android:fitsSystemWindows="true"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp">
+    android:gravity="center"
+    android:background="@drawable/gradient_background"
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
 
-    <!-- Your Image and TextViews -->
+    <!-- Profile Image with Shadow -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/pr_ic_profile_placeholder"
         app:civ_border_width="2dp"
         app:civ_border_color="@android:color/white"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"/>
+        app:civ_shadow="true"
+        app:civ_shadow_radius="8"
+        app:civ_shadow_color="#80000000"
+        android:contentDescription="Profile Image"
+        android:layout_marginBottom="12dp"/>
 
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="John Doe"
-android:textColor="@android:color/white"
-android:textSize="18sp"
-android:textStyle="bold"
-android:layout_marginTop="8dp"
-android:layout_gravity="center_horizontal"/>
+    <!-- Name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="#80000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:layout_marginBottom="4dp"/>
 
-<TextView
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="6354355617"
-android:textColor="@android:color/white"
-android:textSize="14sp"
-android:layout_gravity="center_horizontal"/>
-    </LinearLayout>
+    <!-- Phone Number -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6354355617"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:letterSpacing="0.02"
+        android:drawableStart="@drawable/ic_phone"
+        android:drawablePadding="8dp"
+        android:drawableTint="@android:color/white"/>
+</LinearLayout>
