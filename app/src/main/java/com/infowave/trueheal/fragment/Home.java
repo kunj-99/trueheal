@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,7 +24,8 @@ import com.infowave.trueheal.adapter.SpecialistAdapter;
 
 public class Home extends Fragment {
 
-    TextView showmor;
+
+    Button showmor;
     RecyclerView recyclerView, specialist;
     SliderAdapter adapter;
 
@@ -60,7 +62,7 @@ public class Home extends Fragment {
         // Inflate the fragment layout
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        showmor = rootView.findViewById(R.id.showmor);
+        showmor = rootView.findViewById(R.id.btn_show_more);
 
         // Initialize the main RecyclerView for image slider
         recyclerView = rootView.findViewById(R.id.recyclerView);
