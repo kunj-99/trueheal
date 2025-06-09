@@ -1,5 +1,7 @@
 package com.infowave.trueheal.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.infowave.trueheal.HospitalDoctorsActivity;
 import com.infowave.trueheal.R;
 
 public class HospitalSearchAdapter extends RecyclerView.Adapter<HospitalSearchAdapter.ViewHolder> {
 
+    private Context context;
     private int[] hospitalImages;
     private String[] hospitalNames;
 
-    // Constructor
-    public HospitalSearchAdapter(int[] images, String[] names) {
+    public HospitalSearchAdapter(Context context, int[] images, String[] names) {
+        this.context = context;
         this.hospitalImages = images;
         this.hospitalNames = names;
     }
@@ -25,7 +29,6 @@ public class HospitalSearchAdapter extends RecyclerView.Adapter<HospitalSearchAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Use your item layout, e.g., item_hospital_search.xml
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_hospital_search, parent, false);
         return new ViewHolder(view);
@@ -35,6 +38,13 @@ public class HospitalSearchAdapter extends RecyclerView.Adapter<HospitalSearchAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.hospitalImage.setImageResource(hospitalImages[position]);
         holder.hospitalName.setText(hospitalNames[position]);
+
+        // Click listener to open doctors in hospital
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, HospitalDoctorsActivity.class);
+            intent.putExtra("hospital_name", hospitalNames[position]);
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -42,15 +52,14 @@ public class HospitalSearchAdapter extends RecyclerView.Adapter<HospitalSearchAd
         return hospitalImages.length;
     }
 
-    // ViewHolder for a hospital card/item
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView hospitalImage;
         TextView hospitalName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            hospitalImage = itemView.findViewById(R.id.img);     // image view ID
-            hospitalName = itemView.findViewById(R.id.txt1);     // text view ID
+            hospitalImage = itemView.findViewById(R.id.img);
+            hospitalName = itemView.findViewById(R.id.txt1);
         }
     }
 }

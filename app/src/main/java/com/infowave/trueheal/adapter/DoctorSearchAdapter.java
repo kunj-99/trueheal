@@ -19,17 +19,17 @@ import com.infowave.trueheal.Details;
 import com.infowave.trueheal.InstantAppointment;
 import com.infowave.trueheal.R;
 
-
 public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapter.DoctorViewHolder> {
 
     private Context context;
     private int[] doctorImages;
-    private String[] doctorNames, doctorSpecialties, doctorAvailabilities, pendingPatients, doctorLocations;
+    private String[] doctorNames, doctorSpecialties, doctorAvailabilities, pendingPatients, doctorLocations, doctorHospitals;
     private float[] doctorRatings;
 
     // Constructor
     public DoctorSearchAdapter(Context context, int[] doctorImages, String[] doctorNames, String[] doctorSpecialties,
-                               String[] doctorAvailabilities, String[] pendingPatients, float[] doctorRatings, String[] doctorLocations) {
+                               String[] doctorAvailabilities, String[] pendingPatients, float[] doctorRatings,
+                               String[] doctorLocations, String[] doctorHospitals) {
         this.context = context;
         this.doctorImages = doctorImages;
         this.doctorNames = doctorNames;
@@ -38,6 +38,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
         this.pendingPatients = pendingPatients;
         this.doctorRatings = doctorRatings;
         this.doctorLocations = doctorLocations;
+        this.doctorHospitals = doctorHospitals;
     }
 
     @NonNull
@@ -49,13 +50,21 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
 
     @Override
     public void onBindViewHolder(@NonNull DoctorViewHolder holder, int position) {
-        // Bind data
+        // Bind basic data
         holder.doctorImage.setImageResource(doctorImages[position]);
         holder.doctorName.setText(doctorNames[position]);
         holder.doctorSpecialty.setText(doctorSpecialties[position]);
         holder.doctorAvailability.setText(doctorAvailabilities[position]);
         holder.pendingPatients.setText(pendingPatients[position]);
         holder.doctorRating.setRating(doctorRatings[position]);
+
+        // Set hospital/clinic name with color
+        holder.doctorHospital.setText(doctorHospitals[position]);
+        if (doctorHospitals[position].toLowerCase().contains("clinic")) {
+            holder.doctorHospital.setTextColor(Color.parseColor("#43A047")); // Green
+        } else {
+            holder.doctorHospital.setTextColor(Color.parseColor("#1E88E5")); // Blue
+        }
 
         // Change text color based on availability
         String availability = doctorAvailabilities[position];
@@ -65,7 +74,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
             holder.doctorAvailability.setTextColor(Color.parseColor("#0EBE7F"));
         }
 
-        // Open details page on item click
+        // Item click → Details
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, Details.class);
             intent.putExtra("doctorName", doctorNames[position]);
@@ -73,6 +82,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
             intent.putExtra("doctorImage", doctorImages[position]);
             intent.putExtra("doctorRating", doctorRatings[position]);
             intent.putExtra("doctorLocation", doctorLocations[position]);
+            intent.putExtra("doctorHospital", doctorHospitals[position]);
             context.startActivity(intent);
         });
 
@@ -84,6 +94,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
             intent.putExtra("doctorImage", doctorImages[position]);
             intent.putExtra("doctorRating", doctorRatings[position]);
             intent.putExtra("doctorLocation", doctorLocations[position]);
+            intent.putExtra("doctorHospital", doctorHospitals[position]);
             context.startActivity(intent);
         });
 
@@ -95,6 +106,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
             intent.putExtra("doctorImage", doctorImages[position]);
             intent.putExtra("doctorRating", doctorRatings[position]);
             intent.putExtra("doctorLocation", doctorLocations[position]);
+            intent.putExtra("doctorHospital", doctorHospitals[position]);
             context.startActivity(intent);
         });
     }
@@ -107,7 +119,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
     public static class DoctorViewHolder extends RecyclerView.ViewHolder {
 
         ImageView doctorImage;
-        TextView doctorName, doctorSpecialty, doctorAvailability, pendingPatients;
+        TextView doctorName, doctorHospital, doctorSpecialty, doctorAvailability, pendingPatients;
         RatingBar doctorRating;
         Button scheduleButton, instantButton;
 
@@ -115,6 +127,7 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
             super(itemView);
             doctorImage = itemView.findViewById(R.id.doctor_image);
             doctorName = itemView.findViewById(R.id.doctor_name);
+            doctorHospital = itemView.findViewById(R.id.doctor_hospital);
             doctorSpecialty = itemView.findViewById(R.id.doctor_specialty);
             doctorAvailability = itemView.findViewById(R.id.doctor_availability);
             pendingPatients = itemView.findViewById(R.id.pending_patients);

@@ -29,6 +29,13 @@ public class Search extends Fragment {
     private String[] pendingPatients = {"10 patients pending", "5 patients pending", "12 patients pending"};
     private float[] doctorRatings = {4.5f, 3.5f, 4.0f};
 
+    private String[] doctorHospitals = {
+            "True Heal Hospital",
+            "Green Valley Clinic",
+            "City Hospital"
+    };
+
+
     // New doctor locations array with full addresses
     private String[] doctorLocations = {
             "\"Plot No.251, Police Station, 150 Feet Ring Rd,\\nopp. Gandhigram, Dharam Nagar, Rajkot, Gujarat 360007",
@@ -51,14 +58,19 @@ public class Search extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Set up doctor adapter, passing doctor locations
-        doctorAdapter = new DoctorSearchAdapter(getContext(), doctorImages, doctorNames, doctorSpecialties, doctorAvailabilities, pendingPatients, doctorRatings, doctorLocations);
+        doctorAdapter = new DoctorSearchAdapter(
+                getContext(), doctorImages, doctorNames, doctorSpecialties,
+                doctorAvailabilities, pendingPatients, doctorRatings,
+                doctorLocations, doctorHospitals
+        );
+
         recyclerView.setAdapter(doctorAdapter);
 
         // Initialize RecyclerView for hospitals
         hospitalRecyclerView = view.findViewById(R.id.hospital);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
         hospitalRecyclerView.setLayoutManager(gridLayoutManager);
-        hospitalAdapter = new HospitalSearchAdapter(hospitalImages, hospitalNames);
+        hospitalAdapter = new HospitalSearchAdapter(getActivity(), hospitalImages, hospitalNames);
         hospitalRecyclerView.setAdapter(hospitalAdapter);
 
         return view;

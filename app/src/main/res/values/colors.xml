@@ -44,5 +44,7 @@
     <color name="unselectedColor">#FFFFFF</color>
 
     <color name="dark_cyan">#00a896</color>
+    <color name="green">#0fa37d</color>
+    <color name="amber">#0EBE7F</color>
 </resources>
 
