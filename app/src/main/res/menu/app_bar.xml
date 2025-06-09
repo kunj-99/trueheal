@@ -15,10 +15,10 @@
             android:id="@+id/policy"
             android:title="Privacy Policy1"
             android:icon="@drawable/policy"/>
-        <item
-            android:id="@+id/notification"
-            android:title="Notification1"
-            android:icon="@drawable/notification"/>
+<!--        <item-->
+<!--            android:id="@+id/notification"-->
+<!--            android:title="Notification1"-->
+<!--            android:icon="@drawable/notification"/>-->
         <item
             android:id="@+id/support1"
             android:title="Support"

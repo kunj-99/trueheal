@@ -1,5 +1,6 @@
 package com.infowave.trueheal;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -63,7 +64,64 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 // TODO: Handle item selection here as needed
+
+                int id = item.getItemId();
+
+
+                if (id == R.id.payments1) {
+                    // Handle "Payments" click
+                    Intent intent = new Intent(MainActivity.this, Payment.class);
+                    startActivity(intent);
+                }
+
+                 else if (id == R.id.records1) {
+                    // Handle "Medical Records" click
+                    Intent intent = new Intent(MainActivity.this, MedicalRecord.class);
+                    startActivity(intent);
+                }
+
+                 else if (id == R.id.policy) {
+                    // Handle "Privacy Policy" click
+                    Intent intent = new Intent(MainActivity.this , Policy.class);
+                    startActivity(intent);
+                }
+
+
+                else if (id == R.id.support1) {
+                    // Handle "Support" click
+                    Intent intent = new Intent(MainActivity.this, Support.class);
+                    startActivity(intent);
+                }
+
+                else if (id == R.id.shareapp1) {
+                    // Handle "Share App" click
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    String shareBody = "Check out this awesome app: " + getPackageName();
+                    String shareSubject = "Try this amazing app!";
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+
+                    startActivity(Intent.createChooser(shareIntent, "Share via"));
+                }
+
+
+
+                else if (id == R.id.aboutus1) {
+                    // Handle "About Us" click
+                    Intent intent = new Intent(MainActivity.this, AboutUs.class);
+                    startActivity(intent);
+                }
+
+                else if (id == R.id.settings1) {
+                    // Handle "Settings" click
+                    Intent intent = new Intent(MainActivity.this, Settings.class);
+                    startActivity(intent);
+                }
+
+
                 drawerLayout.closeDrawers();
                 return true;
             }
