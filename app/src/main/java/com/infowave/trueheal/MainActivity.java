@@ -1,11 +1,13 @@
 package com.infowave.trueheal;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        android.view.View headerView = navigationView.getHeaderView(0);
+        LinearLayout profilePage = headerView.findViewById(R.id.profile_Page);
+
+        profilePage.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Profile.class); // Change ProfileActivity.class to your activity!
+            startActivity(intent);
+        });
+
 
         // Navigation item selection listener
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -170,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onPageSelected(int position) {
                 // Change the toolbar title as you swipe pages
@@ -184,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                         toolbarTitle.setText("Appointments");
                         break;
                     case 3:
-                        toolbarTitle.setText("Profile");
+                        toolbarTitle.setText("History");
                         break;
                 }
                 // Update BottomNavigationView as before
